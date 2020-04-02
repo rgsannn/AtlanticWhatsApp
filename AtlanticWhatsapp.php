@@ -29,11 +29,11 @@ class WhatsATL
         return json_decode($result, true);
     }
 
-    public function contact() {
+    public function getContact() {
         return $this->connect([],'/contact');
     }
     
-    public function text($phone,$msg) {
+    public function sendMessage($phone,$msg) {
         return $this->connect([
             'type' => 'message',
             'phone' => $phone,
@@ -41,7 +41,7 @@ class WhatsATL
         ]);
     }
 
-    public function files($phone,$mime,$source,$filename) {
+    public function sendFiles($phone,$mime,$source,$filename) {
         return $this->connect([
             'type' => 'file',
             'phone' => $phone,
@@ -51,7 +51,7 @@ class WhatsATL
         ]);
     }
 
-    public function location($phone,$lat,$long,$locname) {
+    public function sendLocation($phone,$lat,$long,$locname) {
         return $this->connect([
             'type' => 'file',
             'phone' => $phone,
@@ -62,4 +62,4 @@ class WhatsATL
     }
 }
 
-$WATL = new WhatsATL('YOUR API KEY')
+$WATL = new WhatsATL('YOUR API KEY');
