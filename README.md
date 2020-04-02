@@ -1,15 +1,20 @@
 # AtlanticWhatsApp
 PHP library for interract with WhatsApp api https://atlantic-group.id/
+Full Documentation, please visit [WAManager Atlantic Group](https://atlantic-group.id/whatsapp/)
 
 ### Instalasi
-
 Untuk dapat menggunakan fungsi ini, pertama-tama upload script AtlanticWhatsapp dan AtlanticHook ke web anda dan buat API KEY di [Atlantic Group](https://atlantic-group.id/) lalu copy API Key-nya dan paste-kan pada script AtlanticWhatsapp.
 ```
 $WATL = new WhatsATL('API KEY ANDA');
 ```
 
-### Push Message
+### Kontak Grup
+Untuk mendapatkan ID dan Nama grup yang terdata pada bot bisa menggunakan function seperti dibawah ini:
+```
+$WATL->getContact();
+```
 
+### Push Message
 Untuk mengirim push message bisa memanggil function seperti dibawah ini:
 ```
 Kirim Pesan
