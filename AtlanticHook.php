@@ -85,7 +85,7 @@ if($type=='chat'){
         ]]; 
     } else if(substr(strtolower($message['message']['pesan']), 0, 7) == 'remove ') {
         // Remove hanya bisa 1 user saja, bisa multi user, hanya saja resiko Terblockir oleh WA sangat besar
-        $user = explode('remove ', $message['message']['pesan'])[1];
+        $user = explode('remove ', $message['message']['pesan'])[1].'@c.us';
         $result[] = [
             'type' => 'remove_group',
             'data' => [
@@ -99,10 +99,10 @@ if($type=='chat'){
         $nomer = explode(' ',$user);
         if(count($nomer) > 1) {
             for($i = 0; $i < count($nomer)-1; $i++) {
-                $users[] = $nomer[$i];
+                $users[] = $nomer[$i].'@c.us';
             }
         } else {
-            $users = [$user];
+            $users = [$user.'@c.us'];
         }
 
         $result[] = [
