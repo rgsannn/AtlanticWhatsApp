@@ -30,6 +30,26 @@ $WATL->sendLocation('NO HP atau ID Grup','Latitude Map','Longitude Map','Nama Lo
 
 * Contoh MIME: application/pdf | image/jpg | image/png | video/mp4
 
+### Add / Remove Group Participant
+Untuk add atau remove member grup bisa memanggil function seperti dibawah ini:
+```
+Add Participant
+$WATL->addUser('Name / ID Grup','Nomor HP');
+
+Remove Participant
+$WATL->removeUser('Name / ID Grup','Nomor HP');
+```
+
+### Update Grup
+Untuk edit nama atau deskripsi grup bisa memanggil function seperti dibawah ini:
+```
+Group Name
+$WATL->updateGroupName('Name / ID Grup','Nama Baru');
+
+Group Description
+$WATL->updateGroupDesc('Name / ID Grup','Deskripsi Baru');
+```
+
 ## Authors
 * **Dhifo Aksa Hermawan** - *BOT Developer* - [Dhifo](https://www.facebook.com/dhifoaksa)
 * **Afdhalul Ichsan Yourdan** - *BOT Documentation* - [ShennBoku](https://facebook.com/ShennBoku)
