@@ -60,6 +60,40 @@ class WhatsATL
             'message' => $filename
         ]);
     }
+
+    public function addUser($group,$phone) {
+        return $this->connect([
+            'type' => 'add_user',
+            'phone' => $group,
+            'message' => '',
+            'users' => $phone
+        ]);
+    }
+
+    public function removeUser($group,$phone) {
+        return $this->connect([
+            'type' => 'remove_user',
+            'phone' => $group,
+            'message' => '',
+            'users' => explode(',', $phone)[0]
+        ]);
+    }
+
+    public function updateGroupName($group,$name) {
+        return $this->connect([
+            'type' => 'update_subject',
+            'phone' => $group,
+            'message' => $name
+        ]);
+    }
+
+    public function updateGroupDesc($group,$desc) {
+        return $this->connect([
+            'type' => 'update_description',
+            'phone' => $group,
+            'message' => $desc
+        ]);
+    }
 }
 
 $WATL = new WhatsATL('YOUR API KEY');
