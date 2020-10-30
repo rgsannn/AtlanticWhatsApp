@@ -61,16 +61,16 @@ class WhatsATL
         ]);
     }
 
-    public function addUser($group,$phone) {
+    public function addUser($group,$phone,$msg = '-') {
         return $this->connect([
             'type' => 'add_user',
             'phone' => $group,
-            'message' => '',
+            'message' => $msg',
             'users' => $phone
         ]);
     }
 
-    public function removeUser($group,$phone) {
+    public function removeUser($group,$phone,$msg = '-') {
         return $this->connect([
             'type' => 'remove_user',
             'phone' => $group,
