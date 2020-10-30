@@ -65,7 +65,7 @@ class WhatsATL
         return $this->connect([
             'type' => 'add_user',
             'phone' => $group,
-            'message' => $msg',
+            'message' => $msg,
             'users' => $phone
         ]);
     }
