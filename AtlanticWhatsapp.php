@@ -34,7 +34,7 @@ class WhatsATL
     }
     
     public function sendMessage($sid,$phone,$msg) {
-        return $this->connect([
+        return $this->connect($sid,[
             'type' => 'message',
             'phone' => $phone,
             'message' => $msg
@@ -42,7 +42,7 @@ class WhatsATL
     }
 
     public function sendFiles($sid,$phone,$mime,$source,$filename) {
-        return $this->connect([
+        return $this->connect($sid,[
             'type' => 'file',
             'phone' => $phone,
             'filetype' => $mime,
@@ -52,7 +52,7 @@ class WhatsATL
     }
 
     public function sendLocation($sid,$phone,$lat,$long,$locname) {
-        return $this->connect([
+        return $this->connect($sid,[
             'type' => 'file',
             'phone' => $phone,
             'latitude' => $lat,
@@ -62,7 +62,7 @@ class WhatsATL
     }
 
     public function addUser($sid,$group,$phone,$msg = '-') {
-        return $this->connect([
+        return $this->connect($sid,[
             'type' => 'add_user',
             'phone' => $group,
             'message' => $msg,
@@ -71,7 +71,7 @@ class WhatsATL
     }
 
     public function removeUser($sid,$group,$phone,$msg = '-') {
-        return $this->connect([
+        return $this->connect($sid,[
             'type' => 'remove_user',
             'phone' => $group,
             'message' => '',
@@ -80,7 +80,7 @@ class WhatsATL
     }
 
     public function updateGroupName($sid,$group,$name) {
-        return $this->connect([
+        return $this->connect($sid,[
             'type' => 'update_subject',
             'phone' => $group,
             'message' => $name
@@ -88,7 +88,7 @@ class WhatsATL
     }
 
     public function updateGroupDesc($sid,$group,$desc) {
-        return $this->connect([
+        return $this->connect($sid,[
             'type' => 'update_description',
             'phone' => $group,
             'message' => $desc
