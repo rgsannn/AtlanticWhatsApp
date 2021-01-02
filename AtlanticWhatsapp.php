@@ -7,19 +7,23 @@
  */
 class WhatsATL
 {
-    private $token;
-    private $base_url = 'https://api.atlantic-group.id/wa';
+    private $apiid;
+    private $apikey;
+    private $base_url = 'https://atlantic-group.id/api/v1/whatsapp';
     
-    public function __construct($token) {
-        $this->token = $token;
+    public function __construct($uid, $ukey) {
+        $this->apiid = $uid;
+        $this->apikey = $ukey;
     }
     
-    private function connect($x,$n = '/') {
+    private function connect($sid,$x,$n = '') {
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_HTTPHEADER, ['Content-Type: application/x-www-form-urlencoded']);
         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        $x['key'] = $this->token;
+        $x['key'] = $this->apikey;
+        $x['sid'] = $sid;
+        $x['sign'] = md5($this->apiid.$this->apikey);
         curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($x));
         curl_setopt($ch, CURLOPT_URL, $this->base_url.$n);
         curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
@@ -28,12 +32,8 @@ class WhatsATL
         curl_close($ch);
         return json_decode($result, true);
     }
-
-    public function getContact() {
-        return $this->connect([],'/contact');
-    }
     
-    public function sendMessage($phone,$msg) {
+    public function sendMessage($sid,$phone,$msg) {
         return $this->connect([
             'type' => 'message',
             'phone' => $phone,
@@ -41,7 +41,7 @@ class WhatsATL
         ]);
     }
 
-    public function sendFiles($phone,$mime,$source,$filename) {
+    public function sendFiles($sid,$phone,$mime,$source,$filename) {
         return $this->connect([
             'type' => 'file',
             'phone' => $phone,
@@ -51,7 +51,7 @@ class WhatsATL
         ]);
     }
 
-    public function sendLocation($phone,$lat,$long,$locname) {
+    public function sendLocation($sid,$phone,$lat,$long,$locname) {
         return $this->connect([
             'type' => 'file',
             'phone' => $phone,
@@ -61,7 +61,7 @@ class WhatsATL
         ]);
     }
 
-    public function addUser($group,$phone,$msg = '-') {
+    public function addUser($sid,$group,$phone,$msg = '-') {
         return $this->connect([
             'type' => 'add_user',
             'phone' => $group,
@@ -70,7 +70,7 @@ class WhatsATL
         ]);
     }
 
-    public function removeUser($group,$phone,$msg = '-') {
+    public function removeUser($sid,$group,$phone,$msg = '-') {
         return $this->connect([
             'type' => 'remove_user',
             'phone' => $group,
@@ -79,7 +79,7 @@ class WhatsATL
         ]);
     }
 
-    public function updateGroupName($group,$name) {
+    public function updateGroupName($sid,$group,$name) {
         return $this->connect([
             'type' => 'update_subject',
             'phone' => $group,
@@ -87,7 +87,7 @@ class WhatsATL
         ]);
     }
 
-    public function updateGroupDesc($group,$desc) {
+    public function updateGroupDesc($sid,$group,$desc) {
         return $this->connect([
             'type' => 'update_description',
             'phone' => $group,
@@ -96,4 +96,4 @@ class WhatsATL
     }
 }
 
-$WATL = new WhatsATL('YOUR API KEY');
+$WATL = new WhatsATL('YOUR API ID', 'YOUR API KEY');
