@@ -1,10 +1,10 @@
 # AtlanticWhatsApp
-PHP library for interract with WhatsApp api https://atlantic-group.id/
+PHP library for interract with WhatsApp api https://atlantic-group.co.id/
 
-Full Documentation, please visit [WAManager Atlantic Group](https://atlantic-group.id/whatsapp/)
+Full Documentation, please visit [WAManager Atlantic Group](https://atlantic-group.co.id/api/v1/docs/whatsapp)
 
 ### Instalasi
-Untuk dapat menggunakan fungsi ini, pertama-tama upload script AtlanticWhatsapp dan AtlanticHook ke web anda dan buat API KEY di [Atlantic Group](https://atlantic-group.id/) lalu copy API Key-nya dan paste-kan pada script AtlanticWhatsapp.
+Untuk dapat menggunakan fungsi ini, pertama-tama upload script AtlanticWhatsapp dan AtlanticHook ke web anda dan buat API KEY di [Atlantic Group](https://atlantic-group.co.id/) lalu copy API Key-nya dan paste-kan pada script AtlanticWhatsapp.
 ```
 $WATL = new WhatsATL('API ID ANDA', 'API KEY ANDA', 'ID LANGGANAN ANDA');
 ```
