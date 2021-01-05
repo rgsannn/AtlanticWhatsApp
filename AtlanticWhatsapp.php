@@ -10,7 +10,7 @@ class WhatsATL
     private $apiid;
     private $apikey;
     public $subsid;
-    private $base_url = 'https://atlantic-group.id/api/v1/whatsapp';
+    private $base_url = 'https://atlantic-group.co.id/api/v1/whatsapp';
     
     public function __construct($uid, $ukey, $subsid = '') {
         $this->apiid = $uid;
