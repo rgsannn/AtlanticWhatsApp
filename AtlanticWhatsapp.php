@@ -1,10 +1,22 @@
 <?php
 /*
- OFFICIAL WHATSAPP CLASS SCRIPT
- Creator:
-    - DHIFOAKSA | FOUNDER OF ATLANTIC-GROUP
-    - SHENNBOKU | CHIEF DEVELOPER OF ATLANTIC-GROUP
- */
+.---------------------------------------------------------------------------.
+|    Script: Atlantic Whatsapp                                              |
+|   Version: 1.2.8 - API v1                                                 |
+|   Release: November 24, 2019 (12:27 WIB)                                  |
+|    Update: January 06, 2021 (03:35 WIB)                                   |
+|                                                                           |
+|                     Pasal 57 ayat (1) UU 28 Tahun 2014                    |
+|      Copyright © 2019, Afdhalul Ichsan Yourdan. All Rights Reserved.      |
+| ------------------------------------------------------------------------- |
+| Hubungi Saya:                                                             |
+| - Facebook    - Afdhalul Ichsan Yourdan   - https://s.id/ShennFacebook    |
+| - Instagram   - ShennBoku                 - https://s.id/ShennInstagram   |
+| - Telegram    - ShennBoku                 - https://t.me/ShennBoku        |
+| - Twitter     - ShennBoku                 - https://s.id/ShennTwitter     |
+| - WhatsApp    - 0857 7290 6190            - 0822 1158 2471                |
+'---------------------------------------------------------------------------'
+*/
 class WhatsATL
 {
     private $apiid;
