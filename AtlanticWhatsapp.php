@@ -71,7 +71,7 @@ class WhatsATL
             'phone' => $phone,
             'latitude' => $lat,
             'longtitude' => $long,
-            'message' => $filename
+            'message' => $locname
         ]);
     }
 
@@ -88,7 +88,7 @@ class WhatsATL
         return $this->connect([
             'type' => 'remove_user',
             'phone' => $group,
-            'message' => '',
+            'message' => $msg,
             'users' => explode(',', $phone)[0]
         ]);
     }
